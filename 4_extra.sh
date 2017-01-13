@@ -1,6 +1,4 @@
 #!/bin/bash
-sudo apt-get install openssh-server -y
-sudo systemctl restart ssh
 pip install virtualenv
 pip3 install virtualenv
 pip install pandas
