@@ -100,11 +100,11 @@ Equivalent to:
 ```shell
 pip --version || exit 1
 pip3 --version || exit 1
-pip install tensorflow-gpu
-pip3 install tensorflow-gpu
+sudo pip install tensorflow-gpu
+sudo pip3 install tensorflow-gpu
 sudo apt-get install libopenblas-dev -y
-pip install Theano
-pip3 install Theano
+sudo pip install Theano
+sudo pip3 install Theano
 ```
 
 Setting up `.theanorc` for GPU device:
@@ -121,8 +121,8 @@ echo "floatX = float32" >> ~/.theanorc
 And the beloved Keras:
 
 ```shell
-pip install keras
-pip3 install keras
+sudo pip install keras
+sudo pip3 install keras
 ```
 
 ### Test everything working: (all python script should run)
