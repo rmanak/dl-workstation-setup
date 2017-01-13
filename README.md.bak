@@ -14,7 +14,7 @@ Versions To be installed: (Latest as of Jan 12, 2017)
 - Theano 0.8.2
 - TensorFlow 0.12.1
 - Keras 1.2.0
-- and the latest version of common "build-essential" dev tools in Ubuntu 
+- and the latest version of common "build-essential" dev tools in ubuntu 
 (git, cmake, python2, python3, gcc, g++, gfortran etc...)
 
 *Note*: 
@@ -78,7 +78,7 @@ At this point you need to manually register and download the cuDNN (Optional, bu
 
 #### 2) `2_nvidia_cuDNN5.1.sh`: Installs the cuDNN5.1 (Optional)
 
-*First [register] and download cuDNN5.1 from nvidia:* <https://developer.nvidia.com/cudnn> 
+*First [register] and download cuDNN5.1 from nvidia:* <https://developer.nvidia.com/cudnn> th
 
 Equivalent to:
 
