@@ -4,7 +4,7 @@ Setting up a Deep Learning Station from Scratch
 Versions To be installed: (Latest as of Jan 12, 2017)
 -----------------------------------------------------
 
-- (For Ubuntu 16.04.1 LTS freshly installed)
+### (For Ubuntu 16.04.1 LTS freshly installed)
 - Python 2.7.12
 - Python 3.5.2
 - Nvidia 367 Driver
