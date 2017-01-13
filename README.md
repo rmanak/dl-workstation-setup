@@ -123,7 +123,7 @@ pip install keras
 pip3 install keras
 ```
 
-#### 4) Test everything working: (all python script should run)
+### Test everything working: (all python script should run)
 
 
 ```shell
@@ -131,3 +131,7 @@ python mnist.py
 python theano_check.py
 python cifar10_cnn.py
 ```
+
+### Extras:
+There are two more scripts for installing data science tools and also installing conda
+package manager and TF/Theano/Keras there as well.
