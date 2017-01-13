@@ -3,11 +3,11 @@ Setting up a Deep Learning Station from Scratch
 
 ### (For Ubuntu 16.04.1 LTS freshly installed)
 
-Versions To be installed: (Latest as of Jan 12, 2017)
------------------------------------------------------
+Tools/Versions To be installed: (Latest as of Jan 12, 2017)
+-----------------------------------------------------------
 
-- Python 2.7.12
-- Python 3.5.2
+- Python 2.7.12 + pip
+- Python 3.5.2 + pip3
 - Nvidia 367 Driver
 - CUDA 8
 - cuDNN 5.1
@@ -15,11 +15,11 @@ Versions To be installed: (Latest as of Jan 12, 2017)
 - TensorFlow 0.12.1
 - Keras 1.2.0
 - and the latest version of common "build-essential" dev tools in Ubuntu 
-(git, cmake, python2, python3, gcc, g++, gfortran etc...)
+(git, cmake, gcc, g++, gfortran etc...)
 
 *Note*: 
 
-1) Assumes Ubuntu is fresh out of the oven, but shouldn't matter, apt-get will ignore already installed packages
+1) Assumes the Ubuntu OS is at its initial installation state, but shouldn't matter since apt-get will ignore already the installed packages.
 
 2) Installs everything both for python2 and python3 
 
@@ -28,7 +28,8 @@ Versions To be installed: (Latest as of Jan 12, 2017)
 
 Step by Step Installation:
 -------------------------
-Basically all you need to do is to run the shell scripts `.sh` in order
+Basically all you need to do is to run the shell scripts `.sh` in the right order, and might
+need to reboot your machine after Nvidia driver installation.
 
 #### 0) `0_basic_nvidia_drivers.sh`: Installs the basic tools (python2, python3 etc...) and the nvidia driver
 
@@ -65,23 +66,24 @@ sudo apt-get update
 sudo apt-get install cuda -y
 ```
 
-Adds CUDA library directory to the PATH:
+Adds CUDA library path to the `PATH`:
+
 ```shell 
 echo 'export PATH=/usr/local/cuda-8.0/bin:$PATH' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-*Check CUDA compiler wrapper is working by running:* : `nvcc --version`
+*Check CUDA compiler driver is working by running:* : `nvcc --version`
 
-At this point you need to manually register and download the cuDNN (Optional, but faster performance!)
 
 #### 2) `2_nvidia_cuDNN5.1.sh`: Installs the cuDNN5.1 (Optional)
 
+*At this point, unfortunately you need to click on some stuff!*
+
 *First [register] and download cuDNN5.1 from nvidia:* <https://developer.nvidia.com/cudnn> 
 
-Equivalent to:
-
+Then run the script #2 or equivalently: 
 ```shell
 cd ~/Downloads
 tar -xvf cudnn-8.0*.tgz
@@ -105,7 +107,7 @@ pip install Theano
 pip3 install Theano
 ```
 
-Sets up `.theanorc` for GPU device:
+Setting up `.theanorc` for GPU device:
 
 ```bash
 echo "[cuda]" > ~/.theanorc
@@ -116,7 +118,7 @@ echo "device = gpu" >> ~/.theanorc
 echo "floatX = float32" >> ~/.theanorc
 ```
 
-And last one:
+And the beloved Keras:
 
 ```shell
 pip install keras
@@ -133,5 +135,5 @@ python cifar10_cnn.py
 ```
 
 ### Extras:
-There are two more scripts for installing data science tools and also installing conda
+There are two more scripts for installing common data science tools and also installing conda
 package manager and TF/Theano/Keras there as well.
