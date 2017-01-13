@@ -24,8 +24,8 @@ Versions To be installed: (Latest as of Jan 12, 2017)
 3) There are couple of neural net code examples that should successfully run at the end if everything works!
 
 
-Installation:
-------------
+Step by Step Installation:
+-------------------------
 Basically all you need to do is to run the shell scripts `.sh` in order
 
 #### 0) `0_basic_nvidia_drivers.sh`: Installs the basic tools (python2, python3 etc...) and the nvidia driver
