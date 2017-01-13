@@ -18,7 +18,9 @@ Versions To be installed: (Latest as of Jan 12, 2017)
 
 *Note*: 
 1) Assumes Ubuntu is fresh out of the oven
+
 2) Installs everything both for python2 and python3 
+
 3) There are couple of neural net code examples that should successfully run at the end if everything works!
 
 
@@ -72,4 +74,58 @@ source ~/.bashrc
 
 At this point you need to manually register and download the cuDNN (Optional, but faster performance!)
 
-- (Optional) `2_nvid...`: Installs the cuDNN5.1 
+#### 2) `2_nvidia_cuDNN5.1.sh`: Installs the cuDNN5.1 (Optional)
+
+*First [register] and download cuDNN5.1 from nvidia:* <https://developer.nvidia.com/cudnn> th
+
+Equivalent to:
+
+```shell
+cd ~/Downloads
+tar -xvf cudnn-8.0*.tgz
+cd cuda
+sudo cp */*.h /usr/local/cuda/include/
+sudo cp */libcudnn* /usr/local/cuda/lib64/
+sudo chmod a+r /usr/local/cuda/lib64/libcudnn*
+```
+
+#### 3) `3_dl_TF_theano_keras.sh`: Installs Theano, Tensorflow and Keras
+
+Equivalent to:
+
+```shell
+pip --version || exit 1
+pip3 --version || exit 1
+pip install tensorflow-gpu
+pip3 install tensorflow-gpu
+sudo apt-get install libopenblas-dev -y
+pip install Theano
+pip3 install Theano
+```
+
+Sets up `.theanorc` for GPU device:
+
+```bash
+echo "[cuda]" > ~/.theanorc
+echo "root = /usr/local/cuda-8.0/lib64" >> ~/.theanorc
+echo "" >> ~/.theanorc
+echo "[global]" >> ~/.theanorc
+echo "device = gpu" >> ~/.theanorc
+echo "floatX = float32" >> ~/.theanorc
+```
+
+And last one:
+
+```shell
+pip install keras
+pip3 install keras
+```
+
+#### 4) Test everything working: (all python script should run)
+
+
+```shell
+python mnist.py
+python theano_check.py
+python cifar10_cnn.py
+```
