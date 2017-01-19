@@ -20,3 +20,6 @@ conda install spyder -y
 conda install jupyter -y
 python --version 2>&1 | grep 'Continuum' || exit 1
 python -m spacy.en.download
+conda install cython -y
+pip install eve 
+conda install statsmodels
