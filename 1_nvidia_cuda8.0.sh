@@ -34,3 +34,5 @@ nvcc --version || exit 1
 # from nvidia, you need to register first and download the latest
 # cuDNN v5.1 after that go to your download directory and here we go again:
 echo "Download cuDNN and run the next script"
+echo "you can use this link:"
+echo "https://storage.googleapis.com/dllibs/cudnn-8.0-linux-x64-v5.1.tgz"

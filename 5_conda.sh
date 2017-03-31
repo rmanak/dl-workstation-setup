@@ -1,25 +1,17 @@
 #!/bin/bash
-# After installing anaconda, `pip` should be from Anaconda package
-wget -O /tmp/miniconda.sh https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-# This will be interactive:
-#bash /tmp/miniconda.sh
+wget -O /tmp/conda.sh https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh
+bash /tmp/conda.sh -b -p $HOME/anaconda
 source ~/.bashrc
 which conda || exit 1
+python --version 2>&1 |  grep 'Anaconda' || exit 1
+pip --version | grep 'conda' || exit 1
 conda update conda -y
 conda update --all -y
-pip --version | grep 'conda' || exit 1
+conda install gensim
+conda install spacy -y
+conda install statsmodels -y
 pip install tensorflow-gpu
 pip install Theano
 pip install keras
-conda install spacy -y
-conda install pandas -y
-conda install scikit-learn -y
-conda install seaborn -y
-conda install ipython -y
-conda install spyder -y
-conda install jupyter -y
-python --version 2>&1 | grep 'Continuum' || exit 1
-python -m spacy.en.download
-conda install cython -y
 pip install eve 
-conda install statsmodels
+python -m spacy.en.download
