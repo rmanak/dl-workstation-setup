@@ -138,6 +138,13 @@ python cifar10_cnn.py
 There are two more scripts for installing common data science tools and also installing conda
 package manager and TF/Theano/Keras there as well.
 
-[Back to: Publishing Your Landing Pages>>](https://documentation.unbounce.com/hc/en-us/sections/200674004-Publishing-
-Your-Landing-Pages)
 
+  1. Sign in to the account where you manage your domain
+  2. Navigate to the DNS management page
+  3. Find a section called CNAME records
+  4. Create a new CNAME record for your subdomain
+  
+  * For example, if you picked "promo.cheapelephants.com" as 
+  * If you\'re using the root domain www.cheapelephants.com
+  * For the Destination or Points to value, put 
+             
