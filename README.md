@@ -14,14 +14,14 @@ Tools/Versions To be installed: (Latest as of Jan 12, 2017)
 - Theano 0.8.2
 - TensorFlow 0.12.1
 - Keras 1.2.0
-- and the latest version of common "build-essential" dev tools in Ubuntu 
+- and the latest version of common "build-essential" dev tools in Ubuntu
 (git, cmake, gcc, g++, gfortran etc...)
 
-*Note*: 
+*Note*:
 
 1) Assumes the Ubuntu OS is at its initial installation state, but shouldn't matter since apt-get will ignore already the installed packages.
 
-2) Installs everything both for python2 and python3 
+2) Installs everything both for python2 and python3
 
 3) There are couple of neural net code examples that should successfully run at the end if everything works!
 
@@ -68,7 +68,7 @@ sudo apt-get install cuda -y
 
 Adds CUDA library path to the `PATH`:
 
-```shell 
+```shell
 echo 'export PATH=/usr/local/cuda-8.0/bin:$PATH' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
 source ~/.bashrc
@@ -81,9 +81,9 @@ source ~/.bashrc
 
 *At this point, unfortunately you need to click on some stuff!*
 
-*First [register] and download cuDNN5.1 from nvidia:* <https://developer.nvidia.com/cudnn> 
+*First [register] and download cuDNN5.1 from nvidia:* <https://developer.nvidia.com/cudnn>
 
-Then run the script #2 or equivalently: 
+Then run the script #2 or equivalently:
 ```shell
 cd ~/Downloads
 tar -xvf cudnn-8.0*.tgz
@@ -137,14 +137,3 @@ python cifar10_cnn.py
 ### Extras:
 There are two more scripts for installing common data science tools and also installing conda
 package manager and TF/Theano/Keras there as well.
-
-
-  1. Sign in to the account where you manage your domain
-  2. Navigate to the DNS management page
-  3. Find a section called CNAME records
-  4. Create a new CNAME record for your subdomain
-  
-  * For example, if you picked "promo.cheapelephants.com" as 
-  * If you\'re using the root domain www.cheapelephants.com
-  * For the Destination or Points to value, put 
-             
