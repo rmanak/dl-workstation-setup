@@ -1,6 +1,10 @@
 Setting up a Deep Learning Station from Scratch
 ================================================
 
+** This repo is not up-to-date for Tensorflow 1.5 **
+
+You need to install **cuda9.0** and **cudnn7.0.5** to be compatible with TF1.5
+
 ### (For Ubuntu 16.04.1 LTS freshly installed)
 
 Tools/Versions To be installed: (Latest as of Jan 12, 2017)
