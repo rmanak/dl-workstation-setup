@@ -64,7 +64,7 @@ Equivalent to:
 
 ```shell
 sudo apt-get install wget -y
-wget -O /tmp/cuda.deb 'http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.44-1_amd64.deb'
+wget -O /tmp/cuda.deb 'https://developer.nvidia.com/compute/cuda/9.2/Prod/local_installers/cuda-repo-ubuntu1604-9-2-local_9.2.88-1_amd64'
 sudo dpkg -i /tmp/cuda.deb
 sudo apt-get update
 sudo apt-get install cuda -y
