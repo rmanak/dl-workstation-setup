@@ -1,21 +1,16 @@
 Setting up a Deep Learning Station from Scratch
 ================================================
 
-** This repo is not up-to-date for Tensorflow 1.5 **
-
-You need to install **cuda9.0** and **cudnn7.0.5** to be compatible with TF1.5
-
 ### (For Ubuntu 16.04 LTS)
 
 Tools/Versions To be installed: (Latest as of July 2018)
 -----------------------------------------------------------
 
-- Python 2.7.12 + pip
 - Python 3.5.2 + pip3
 - Nvidia 396 Driver
-- CUDA 9.2
+- CUDA 9.0
 - cuDNN 7.1
-- TensorFlow 0.12.1
+- Tensorflow 1.8
 
 - and the latest version of common "build-essential" dev tools in Ubuntu
 (git, cmake, gcc, g++, gfortran etc...)
@@ -57,23 +52,26 @@ sudo apt-get install nvidia-396 -y
 
 *Check GPU is properly detected and driver is installed by running:* `nvidia-smi`
 
-#### 1) `1_nvidia_cuda9.2.sh`: Downloads and installs CUDA 9
+#### 1) `1_nvidia_cuda9.0.sh`: Downloads and installs CUDA 9
 
 Equivalent to:
 
 ```shell
 sudo apt-get install wget -y
-wget -O /tmp/cuda.deb 'https://developer.nvidia.com/compute/cuda/9.2/Prod/local_installers/cuda-repo-ubuntu1604-9-2-local_9.2.88-1_amd64'
-sudo dpkg -i /tmp/cuda.deb
+wget 'http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_9.0.176-1_amd64.deb'
+echo "Installing cuda,... this can take a while!"
+sleep 2
+sudo dpkg -i cuda-repo-ubuntu1604_9.0.176-1_amd64.deb
+sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub
 sudo apt-get update
-sudo apt-get install cuda -y
+sudo apt-get install cuda-9-0
 ```
 
 Adds CUDA library path to the `PATH`:
 
 ```shell
-echo 'export PATH=/usr/local/cuda-9.2/bin:$PATH' >> ~/.bashrc
-echo 'export LD_LIBRARY_PATH=/usr/local/cuda-9.2/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
+echo 'export PATH=/usr/local/cuda-9.0/bin:$PATH' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
 source ~/.bashrc
 ```
 
@@ -84,12 +82,12 @@ source ~/.bashrc
 
 *At this point, unfortunately you need to click on some stuff!*
 
-*First [register] and download cuDNN5.1 from nvidia:* <https://developer.nvidia.com/cudnn>
+*First [register] and download cuDNN7.1.4 from nvidia:* <https://developer.nvidia.com/cudnn>
 
 Then run the script #2 or equivalently:
 ```shell
 cd ~/Downloads
-tar -xvf cudnn*.tgz
+tar -xvf cudnn-9.0*.tgz
 cd cuda
 sudo cp */*.h /usr/local/cuda/include/
 sudo cp */libcudnn* /usr/local/cuda/lib64/
@@ -101,27 +99,12 @@ sudo chmod a+r /usr/local/cuda/lib64/libcudnn*
 Equivalent to:
 
 ```shell
-pip --version || exit 1
 pip3 --version || exit 1
-sudo pip install tensorflow-gpu
 sudo pip3 install tensorflow-gpu
 ```
-
-And the beloved Keras:
-
-```shell
-sudo pip install keras
-sudo pip3 install keras
-```
-
 ### Test everything working: (all python script should run)
 
 
 ```shell
-python mnist.py
-python cifar10_cnn.py
+python3 mnist.py
 ```
-
-### Extras:
-There are two more scripts for installing common data science tools and also installing conda
-package manager and TF/Theano/Keras there as well.
