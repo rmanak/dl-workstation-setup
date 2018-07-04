@@ -5,19 +5,18 @@ Setting up a Deep Learning Station from Scratch
 
 You need to install **cuda9.0** and **cudnn7.0.5** to be compatible with TF1.5
 
-### (For Ubuntu 16.04.1 LTS freshly installed)
+### (For Ubuntu 16.04 LTS)
 
-Tools/Versions To be installed: (Latest as of Jan 12, 2017)
+Tools/Versions To be installed: (Latest as of July 2018)
 -----------------------------------------------------------
 
 - Python 2.7.12 + pip
 - Python 3.5.2 + pip3
-- Nvidia 367 Driver
-- CUDA 8
-- cuDNN 5.1
-- Theano 0.8.2
+- Nvidia 396 Driver
+- CUDA 9.2
+- cuDNN 7.1
 - TensorFlow 0.12.1
-- Keras 1.2.0
+
 - and the latest version of common "build-essential" dev tools in Ubuntu
 (git, cmake, gcc, g++, gfortran etc...)
 
@@ -53,12 +52,12 @@ sudo apt-get install cmake -y
 sudo apt-get install pkg-config -y
 sudo apt-get autoremove -y
 sudo apt-get install linux-headers-$(uname -r) -y
-sudo apt-get install nvidia-367 -y
+sudo apt-get install nvidia-396 -y
 ```
 
 *Check GPU is properly detected and driver is installed by running:* `nvidia-smi`
 
-#### 1) `1_nvidia_cuda8.0.sh`: Downloads and installs CUDA 8
+#### 1) `1_nvidia_cuda9.2.sh`: Downloads and installs CUDA 9
 
 Equivalent to:
 
@@ -73,15 +72,15 @@ sudo apt-get install cuda -y
 Adds CUDA library path to the `PATH`:
 
 ```shell
-echo 'export PATH=/usr/local/cuda-8.0/bin:$PATH' >> ~/.bashrc
-echo 'export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
+echo 'export PATH=/usr/local/cuda-9.2/bin:$PATH' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH=/usr/local/cuda-9.2/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
 source ~/.bashrc
 ```
 
 *Check CUDA compiler driver is working by running:* : `nvcc --version`
 
 
-#### 2) `2_nvidia_cuDNN5.1.sh`: Installs the cuDNN5.1 (Optional)
+#### 2) `2_nvidia_cuDNN7.14.sh`: Installs the cuDNN7.1.4 (Optional)
 
 *At this point, unfortunately you need to click on some stuff!*
 
@@ -90,14 +89,14 @@ source ~/.bashrc
 Then run the script #2 or equivalently:
 ```shell
 cd ~/Downloads
-tar -xvf cudnn-8.0*.tgz
+tar -xvf cudnn*.tgz
 cd cuda
 sudo cp */*.h /usr/local/cuda/include/
 sudo cp */libcudnn* /usr/local/cuda/lib64/
 sudo chmod a+r /usr/local/cuda/lib64/libcudnn*
 ```
 
-#### 3) `3_dl_TF_theano_keras.sh`: Installs Theano, Tensorflow and Keras
+#### 3) `3_dl_TF.sh`: Installs Theano, Tensorflow and Keras
 
 Equivalent to:
 
@@ -106,20 +105,6 @@ pip --version || exit 1
 pip3 --version || exit 1
 sudo pip install tensorflow-gpu
 sudo pip3 install tensorflow-gpu
-sudo apt-get install libopenblas-dev -y
-sudo pip install Theano
-sudo pip3 install Theano
-```
-
-Setting up `.theanorc` for GPU device:
-
-```bash
-echo "[cuda]" > ~/.theanorc
-echo "root = /usr/local/cuda-8.0/lib64" >> ~/.theanorc
-echo "" >> ~/.theanorc
-echo "[global]" >> ~/.theanorc
-echo "device = gpu" >> ~/.theanorc
-echo "floatX = float32" >> ~/.theanorc
 ```
 
 And the beloved Keras:
@@ -134,7 +119,6 @@ sudo pip3 install keras
 
 ```shell
 python mnist.py
-python theano_check.py
 python cifar10_cnn.py
 ```
 

@@ -1,7 +1,7 @@
 #!/bin/bash
-wget https://storage.googleapis.com/dllibs/cudnn-8.0-linux-x64-v5.1.tgz
-# cd ~/Downloads
-tar -xvf cudnn-8.0*.tgz
+# first download the cuDNN v7.1.4 from nvidia website https://developer.nvidia.com/rdp/cudnn-download
+cd ~/Downloads
+tar -xvf cudnn*.tgz
 cd cuda
 sudo cp */*.h /usr/local/cuda/include/
 sudo cp */libcudnn* /usr/local/cuda/lib64/
