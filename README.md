@@ -106,3 +106,13 @@ sudo pip3 install tensorflow-gpu
 ```shell
 python3 mnist.py
 ```
+
+### Anaconda:
+
+If you like using `conda` as package manager, the following is pretty much
+all you need:
+
+`conda install tensorflow-gpu=1.8`
+
+It should also install `cuda9.0` and `cudnn7.1`,  you just need to have `nvidia-396` installed.
+
