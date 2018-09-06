@@ -12,6 +12,6 @@ sudo apt-get install cmake -y
 sudo apt-get install pkg-config -y
 sudo apt-get autoremove -y
 sudo apt-get install linux-headers-$(uname -r) -y
-sudo apt-get install nvidia-396 -y
+sudo apt-get install nvidia-384 -y
 echo "*** PROBABLY NEED REBOOT AT THIS POINT ***"
 sleep 2
