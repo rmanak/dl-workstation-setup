@@ -1,6 +1,6 @@
 Latest update: Sat Jan 11 20:15:25 PST 2020
 
-## For Ubuntu 18.04 LTS
+## For Ubuntu 18.04 LTS + TF 2.1+
 
 
 Simply look at the `tf_2.1_Ubuntu18.sh` file. It should install cuda 10.1
