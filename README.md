@@ -1,7 +1,16 @@
-Setting up a Deep Learning Station from Scratch
-================================================
+Latest update: Sat Jan 11 20:15:25 PST 2020
 
-### (For Ubuntu 16.04 LTS)
+## For Ubuntu 18.04 LTS
+
+
+Simply look at the `tf_2.1_Ubuntu18.sh` file. It should install cuda 10.1
+and tensorflow 2.1 (or attempting the latest version)
+
+Then run the test python script `test_gpu_tf2.1.py` to see if
+tensorflow is detecting the GPU.
+
+
+## (For Ubuntu 16.04 LTS)
 
 Tools/Versions To be installed: (Latest as of July 2018)
 --------------------------------------------------------
